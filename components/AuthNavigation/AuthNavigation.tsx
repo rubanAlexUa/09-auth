@@ -1,8 +1,11 @@
+"use client";
 import css from "./AuthNavigation.module.css";
 import Link from "next/link";
+import { useAuthStore } from "@/lib/store/authStore";
 
 export default function AuthNavigation() {
-  return (
+  const { isAuthorized, user } = useAuthStore();
+  return isAuthorized ? (
     <>
       <li className={css.navigationItem}>
         <Link href="/profile" prefetch={false} className={css.navigationLink}>
@@ -11,10 +14,12 @@ export default function AuthNavigation() {
       </li>
 
       <li className={css.navigationItem}>
-        <p className={css.userEmail}>User email</p>
+        <p className={css.userEmail}>{user?.email}</p>
         <button className={css.logoutButton}>Logout</button>
       </li>
-
+    </>
+  ) : (
+    <>
       <li className={css.navigationItem}>
         <Link href="/sign-in" prefetch={false} className={css.navigationLink}>
           Login
