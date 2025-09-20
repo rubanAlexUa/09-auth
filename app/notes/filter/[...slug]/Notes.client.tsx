@@ -9,7 +9,7 @@ import NoteList from "@/components/NoteList/NoteList";
 import Pagination from "@/components/Pagination/Pagination";
 import SearchBox from "@/components/SearchBox/SearchBox";
 
-import { fetchNotes } from "@/lib/clientApi";
+import { fetchNotes } from "@/lib/api/clientApi";
 
 type Props = {
   tag: string | undefined;

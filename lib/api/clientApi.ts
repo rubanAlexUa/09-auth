@@ -1,5 +1,6 @@
-import { nextServer } from "@/lib/api";
+import { nextServer } from "@/lib/api/api";
 import type { Note, NoteFormValues } from "@/types/note";
+import { User } from "@/types/user";
 
 interface NoteServiceProps {
   query: string;
@@ -36,5 +37,15 @@ export const createNote = async (newTodo: NoteFormValues): Promise<Note> => {
 
 export const deleteNote = async (noteId: string): Promise<Note> => {
   const res = await nextServer.delete<Note>(`/notes/${noteId}`, {});
+  return res.data;
+};
+export type RegisterRequest = {
+  email: string;
+  password: string;
+  userName: string;
+};
+
+export const register = async (data: RegisterRequest) => {
+  const res = await nextServer.post<User>("/auth/register", data);
   return res.data;
 };
