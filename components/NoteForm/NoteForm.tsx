@@ -4,7 +4,7 @@ import c from "./NoteForm.module.css";
 
 import { useNoteDraftStore } from "@/lib/store/noteStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createNote } from "@/lib/api/api";
+import { createNote } from "@/lib/api/clientApi";
 import { useRouter } from "next/navigation";
 
 const TAGS = ["Todo", "Work", "Personal", "Meeting", "Shopping"] as const;

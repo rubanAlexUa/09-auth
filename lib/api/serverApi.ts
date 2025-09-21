@@ -44,3 +44,14 @@ export const fetchServerNotes = async ({
   });
   return response.data;
 };
+
+export const checkServerSession = async () => {
+  const cookieStore = await cookies();
+  const res = await nextServer.get("/auth/session", {
+    headers: {
+      Cookie: cookieStore.toString(),
+    },
+  });
+
+  return res;
+};

@@ -42,7 +42,7 @@ export const deleteNote = async (noteId: string): Promise<Note> => {
 export type RegisterRequest = {
   email: string;
   password: string;
-  userName: string;
+  username: string;
 };
 
 export const register = async (data: RegisterRequest) => {
@@ -61,4 +61,28 @@ export const checkSession = async () => {
 export const getMe = async () => {
   const { data } = await nextServer.get<User>("/users/me");
   return data;
+};
+export type LoginRequest = {
+  email: string;
+  password: string;
+};
+
+export const login = async (data: LoginRequest) => {
+  const res = await nextServer.post<User>("/auth/login", data);
+  return res.data;
+};
+
+export const logout = async (): Promise<void> => {
+  await nextServer.post("/auth/logout");
+};
+
+export type UpdateUserRequest = {
+  username?: string;
+};
+
+export const updateMe = async (payload: UpdateUserRequest) => {
+  const res = await nextServer.patch<User>("/users/me", {
+    username: payload.username,
+  });
+  return res.data;
 };

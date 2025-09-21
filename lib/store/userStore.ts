@@ -3,10 +3,10 @@ import { User } from "@/types/user";
 
 type UserDraftStore = {
   user: User | null;
-  setDraft: (user: User) => void;
+  setUser: (user: User) => void;
 };
 
 export const useUserStore = create<UserDraftStore>()((set) => ({
   user: null,
-  setDraft: (user) => set({ user }),
+  setUser: (user) => set({ user }),
 }));
