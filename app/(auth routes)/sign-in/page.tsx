@@ -1,4 +1,3 @@
-"use client";
 import css from "./SignInPage.module.css";
 import { ApiError } from "@/lib/api/api";
 import { useRouter } from "next/navigation";
