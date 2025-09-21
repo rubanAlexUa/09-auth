@@ -5,7 +5,25 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useAuthStore } from "@/lib/store/authStore";
 import { login, LoginRequest } from "@/lib/api/clientApi";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Sign in",
+  description: "Sign in your Account and remember what have you to do today",
+  openGraph: {
+    title: "Sign in",
+    description: "Sign in your Account and remember what have you to do today",
+    url: "https://notehub.versel.app/sign-up/",
+    images: [
+      {
+        url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+        width: 1200,
+        height: 630,
+        alt: "NoteHub",
+      },
+    ],
+  },
+};
 export default function SignInPage() {
   const router = useRouter();
   const [error, setError] = useState("");
