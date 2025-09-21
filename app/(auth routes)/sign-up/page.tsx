@@ -1,4 +1,4 @@
-"use slient";
+"use client";
 import css from "./SignUpPage.module.css";
 import { RegisterRequest, register } from "@/lib/api/clientApi";
 import { useRouter } from "next/navigation";
