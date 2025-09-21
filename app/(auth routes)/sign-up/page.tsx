@@ -1,28 +1,10 @@
+"use slient";
 import css from "./SignUpPage.module.css";
 import { RegisterRequest, register } from "@/lib/api/clientApi";
 import { useRouter } from "next/navigation";
 import { ApiError } from "@/lib/api/api";
 import { useState } from "react";
 import { useAuthStore } from "@/lib/store/authStore";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Sign up",
-  description: "Create an Account and make notes for your life",
-  openGraph: {
-    title: "Sign up",
-    description: "Create an Account and make notes for your life",
-    url: "https://notehub.versel.app/sign-up",
-    images: [
-      {
-        url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
-        width: 1200,
-        height: 630,
-        alt: "NoteHub",
-      },
-    ],
-  },
-};
 export default function SignUpPage() {
   const router = useRouter();
   const [error, setError] = useState("");
